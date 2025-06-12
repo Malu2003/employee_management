@@ -42,8 +42,6 @@ This application provides a comprehensive employee management system with the fo
 - **Language:** TypeScript
 - **Database:** MySQL
 - **ORM:** TypeORM/Prisma
-- **Authentication:** JWT (if implemented)
-- **Validation:** Class-validator
 
 ## 📋 Prerequisites
 
@@ -54,99 +52,12 @@ Make sure you have the following installed:
 - **Angular CLI** (`npm install -g @angular/cli`)
 - **NestJS CLI** (`npm install -g @nestjs/cli`)
 
-## 🚀 Getting Started
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/yourusername/employee-management-fullstack.git
-cd employee-management-fullstack
-```
-
-### 2. Install Dependencies
-```bash
-# Install root dependencies and all sub-project dependencies
-npm run install:all
-```
-
-### 3. Database Setup
-```bash
-# Login to MySQL
-mysql -u root -p
-
-# Create database
-CREATE DATABASE employee_management;
-
-# Create user (optional)
-CREATE USER 'emp_user'@'localhost' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON employee_management.* TO 'emp_user'@'localhost';
-FLUSH PRIVILEGES;
-```
-
-### 4. Environment Configuration
-
-#### Backend Environment (.env in backend folder)
-```env
-DATABASE_HOST=localhost
-DATABASE_PORT=3306
-DATABASE_USERNAME=your_username
-DATABASE_PASSWORD=your_password
-DATABASE_NAME=employee_management
-
-JWT_SECRET=your-super-secret-jwt-key
-JWT_EXPIRES_IN=7d
-
-PORT=3000
-NODE_ENV=development
-```
-
-#### Frontend Proxy Configuration (already configured)
-```json
-{
-  "/api": {
-    "target": "http://localhost:3000",
-    "secure": false,
-    "changeOrigin": true
-  }
-}
-```
-
-### 5. Database Migration
-```bash
-cd backend
-npm run migration:run
-# or
-npm run db:migrate
-```
-
-## 🏃‍♂️ Running the Application
-
-### Development Mode (Recommended)
-```bash
-# Run both frontend and backend concurrently
-npm run dev
-```
 
 This will start:
 - **Frontend:** http://localhost:4200
 - **Backend:** http://localhost:3000
 
-### Run Individually
-```bash
-# Frontend only
-npm run dev:frontend
-
-# Backend only  
-npm run dev:backend
-```
-
-### Production Build
-```bash
-# Build both applications
-npm run build:all
-
-# Serve production builds
-npm run start:prod
-```
 
 ## 📱 Application Features
 
@@ -227,38 +138,6 @@ employee-management-fullstack/
 2. **Backend:** Add modules in `backend/src/modules/`
 3. **Database:** Update entities and run migrations
 
-## 🚀 Deployment
-
-### Frontend (Vercel/Netlify)
-```bash
-cd frontend
-ng build --prod
-# Deploy dist folder to Vercel/Netlify
-```
-
-### Backend (Railway/Render)
-```bash
-cd backend
-npm run build
-# Deploy to Railway/Render with environment variables
-```
-
-### Database (PlanetScale/Supabase)
-- Use cloud database service
-- Update connection string in backend/.env
-
-## 🧪 Testing
-
-```bash
-# Run all tests
-npm run test
-
-# Run frontend tests
-npm run test:frontend
-
-# Run backend tests
-npm run test:backend
-```
 
 ## 🤝 Contributing
 
@@ -268,23 +147,12 @@ npm run test:backend
 4. Push to branch (`git push origin feature/amazing-feature`)
 5. Open Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 👤 Author
 
 **Your Name**
-- Email: your.email@example.com
-- GitHub: [@yourusername](https://github.com/yourusername)
+- Email: nijin.ai.tech@gmail.com
+- GitHub: [@Malu2003](https://github.com/yourusername)
 
-## 🙏 Acknowledgments
-
-- Angular Team for the amazing framework
-- NestJS Team for the powerful backend framework
-- Community contributors and tutorials
-
----
 
 **⭐ Star this repository if you found it helpful!**
 
@@ -303,7 +171,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Live Demo
 
-[🌐 Live Application](https://your-app-name.vercel.app) *(Replace with actual URL after deployment)*
+[🌐 Live Application](https://your-app-name.vercel.app) 
 
 ## 📞 Support
 
