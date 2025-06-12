@@ -1,0 +1,103 @@
+.r1 {
+  background: linear-gradient(90deg, #2c5aa0 0%, #1e3c72 100%);
+  padding: 15px 0;
+  margin: 0;
+  width: 100%;
+  border-bottom: 2px solid #007bff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav-link {
+  color: white !important;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 25px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 160px;
+  text-align: center;
+  justify-content: center;
+}
+
+.nav-link.home {
+  background: rgba(0, 123, 255, 0.2);
+  border: 2px solid rgba(0, 123, 255, 0.3);
+}
+
+.nav-link.employees {
+  background: rgba(40, 167, 69, 0.2);
+  border: 2px solid rgba(40, 167, 69, 0.3);
+}
+
+.nav-link.add {
+  background: rgba(23, 162, 184, 0.2);
+  border: 2px solid rgba(23, 162, 184, 0.3);
+}
+
+.nav-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link.home:hover {
+  background: rgba(0, 123, 255, 0.4);
+  border-color: #007bff;
+}
+
+.nav-link.employees:hover {
+  background: rgba(40, 167, 69, 0.4);
+  border-color: #28a745;
+}
+
+.nav-link.add:hover {
+  background: rgba(23, 162, 184, 0.4);
+  border-color: #17a2b8;
+}
+
+.active-link {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: white !important;
+  color: #fff !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .separator {
+    display: none;
+  }
+  
+  .nav-link {
+    min-width: 200px;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,129 @@
+
+<div class="user-details-container">
+ 
+  <div *ngIf="loading" class="loading-section">
+    <div class="spinner"></div>
+    <p>Loading user details...</p>
+  </div>
+
+  
+  <div *ngIf="error" class="alert alert-danger">
+    <i class="error-icon">⚠️</i>
+    {{ error }}
+  </div>
+
+  <div *ngIf="user && !loading" class="user-info">
+    <div class="header-section">
+      <h1 class="main-title"> Complete User Details</h1>
+      <div class="user-badge">
+        <span class="user-id">ID: {{ user.id }}</span>
+        <span class="username">{{ user.username }}</span>
+      </div>
+    </div>
+    
+    <div class="cards-container">
+      
+     
+      <div class="info-card basic-info">
+        <div class="card-header">
+          <h2><i class="icon">👤</i> Basic Information</h2>
+        </div>
+        <div class="card-content">
+          <div class="info-grid">
+            <div class="info-item">
+              <span class="label">Username:</span>
+              <span class="value">{{ user.username }}</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Created At:</span>
+              <span class="value">{{ user.createdAt | date:'medium' }}</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Auth Strategy:</span>
+              <span class="value">{{ user.authStrategy || 'Not set' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card profile-info">
+        <div class="card-header">
+          <h2><i class="icon">📝</i> Profile Information</h2>
+        </div>
+        <div class="card-content">
+          <div *ngIf="user.profile; else noProfile" class="info-grid">
+            <div class="info-item">
+              <span class="label">First Name:</span>
+              <span class="value">{{ user.profile.firstName }}</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Last Name:</span>
+              <span class="value">{{ user.profile.lastName }}</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Age:</span>
+              <span class="value">{{ user.profile.age }}</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Date of Birth:</span>
+              <span class="value">{{ user.profile.dob | date:'mediumDate' }}</span>
+            </div>
+          </div>
+          <ng-template #noProfile>
+            <div class="no-data">
+              <i class="no-data-icon">📋</i>
+              <p>No profile information available</p>
+              <small>User hasn't created a profile yet</small>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+
+     
+      <div class="info-card posts-info">
+        <div class="card-header">
+          <h2><i class="icon">📚</i> Posts <span class="post-count">({{ user.posts?.length || 0 }})</span></h2>
+        </div>
+        <div class="card-content">
+          <div *ngIf="user.posts && user.posts.length > 0; else noPosts">
+            <div *ngFor="let post of user.posts; let i = index" class="post-item">
+              <div class="post-number">{{ i + 1 }}</div>
+              <div class="post-content">
+                <h4 class="post-title">{{ post.title }}</h4>
+                <p class="post-description">{{ post.description }}</p>
+              </div>
+            </div>
+          </div>
+          <ng-template #noPosts>
+            <div class="no-data">
+              <i class="no-data-icon">📝</i>
+              <p>No posts available</p>
+              <small>User hasn't created any posts yet</small>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+   
+    <div class="actions-section">
+      <h3>Available Actions</h3>
+      <div class="button-group">
+        <button (click)="editUser()" class="btn btn-warning">
+          <i class="btn-icon">✏️</i>
+          Edit User
+        </button>
+        
+        <button (click)="goBack()" class="btn btn-secondary">
+          <i class="btn-icon">↩️</i>
+          Back to List
+        </button>
+        
+        <button (click)="goToWelcome()" class="btn btn-success">
+          <i class="btn-icon">🏠</i>
+           HOME
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

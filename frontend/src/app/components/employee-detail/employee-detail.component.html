@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<div class="employee-detail-container">
+  <!-- Add error display -->
+  <div *ngIf="error" class="alert alert-danger" style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 15px; border: 1px solid #f5c6cb; border-radius: 4px;">
+    {{ error }}
+  </div>
+
+  <!-- Add loading display -->
+  <div *ngIf="loading" class="alert alert-info" style="background-color: #d1ecf1; color: #0c5460; padding: 10px; margin-bottom: 15px; border: 1px solid #bee5eb; border-radius: 4px;">
+    Processing...
+  </div>
+
+  <h2>{{ isEdit ? 'Edit Employee' : 'Add Employee' }}</h2>
+  <form #empForm="ngForm" (ngSubmit)="saveEmployee(empForm)">
+    <label>
+      Username:
+      <input type="text" name="username" [(ngModel)]="employee.username" required />
+    </label>
+    <br /><br />
+    
+    <!-- Show password field for both create and edit -->
+    <label>
+      Password:
+      <input type="password" name="password" [(ngModel)]="employee.password" [required]="!isEdit" />
+      <small *ngIf="isEdit" style="color: #666;"></small>
+    </label>
+    <br /><br />
+    
+
+    
+    <button 
+      type="submit" 
+      class="btn btn-primary" 
+      [disabled]="loading || empForm.invalid">
+      {{ loading ? 'Saving...' : (isEdit ? 'Update' : 'Save') }}
+    </button>
+    <button type="button" (click)="cancel()">Cancel</button>
+  </form>
+</div>

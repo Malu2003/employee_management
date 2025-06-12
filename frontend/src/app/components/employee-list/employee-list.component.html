@@ -1,0 +1,126 @@
+<app-navbar></app-navbar>
+
+<div class="employee-list-container">
+  <!-- Header Section -->
+  <div class="header-section">
+    <h2 class="page-title">👥 Employee Management</h2>
+    <p class="page-subtitle">Manage your employees and their information</p>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <button (click)="goToAddEmployee()" class="btn btn-primary">
+      <span class="btn-icon">➕</span>
+      Add New Employee
+    </button>
+    
+    <button (click)="goToWelcome()" class="btn btn-success">
+      <span class="btn-icon">🏠</span>
+      Home
+  
+    </button>
+  </div>
+
+  <div class="table-container">
+    <div *ngIf="employees && employees.length > 0; else noEmployees" class="table-wrapper">
+      <table class="employee-table">
+        <thead>
+          <tr>
+            <th class="col-username">Username</th>
+            <th class="col-id">Employee ID</th>
+            <th class="col-actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees; let i = index" class="employee-row">
+            <td class="username-cell">
+              <div class="user-info">
+                <span class="user-avatar">👤</span>
+                <span class="username">{{ employee.username }}</span>
+              </div>
+            </td>
+            <td class="id-cell">
+              <span class="employee-id">#{{ employee.id }}</span>
+            </td>
+            <td class="actions-cell">
+              <div class="action-buttons-row">
+                <button (click)="updateEmployee(employee.id)" 
+                        class="btn-action btn-view" 
+                        title="View Details">
+                  <span class="action-icon">👁️</span>
+                  Details
+                </button>
+                
+                <button (click)="goToProfile(employee.id)" 
+                        class="btn-action btn-profile" 
+                        title="Add Profile">
+                  <span class="action-icon">📝</span>
+                  Profile
+                </button>
+                
+                <button (click)="showPostsOptions(employee.id)" 
+                        class="btn-action btn-posts" 
+                        title="Manage Posts">
+                  <span class="action-icon">📚</span>
+                  Posts
+                </button>
+                
+                <button (click)="deleteEmployee(employee.id)" 
+                        class="btn-action btn-delete" 
+                        title="Delete Employee">
+                  <span class="action-icon">🗑️</span>
+                  Delete
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <ng-template #noEmployees>
+      <div class="no-employees">
+        <div class="no-data-icon">👥</div>
+        <h3>No Employees Found</h3>
+        <p>Start by adding your first employee to the system.</p>
+        <button (click)="goToAddEmployee()" class="btn btn-primary">
+          <span class="btn-icon">➕</span>
+          Add First Employee
+        </button>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+<div *ngIf="showPostsModal" class="modal-backdrop" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3 class="modal-title">📚 Posts Management</h3>
+      <button class="modal-close" (click)="closeModal()">✕</button>
+    </div>
+    
+    <div class="modal-body">
+      <p class="modal-description">
+        Choose an action for <strong>User ID: {{ selectedUserId }}</strong>
+      </p>
+      
+      <div class="modal-buttons">
+        <button (click)="viewPosts()" class="btn btn-info">
+          <span class="btn-icon">👁️</span>
+          View Posts
+        </button>
+        
+        <button (click)="addNewPost()" class="btn btn-success">
+          <span class="btn-icon">➕</span>
+          Add New Post
+        </button>
+        
+        <button (click)="closeModal()" class="btn btn-secondary">
+          <span class="btn-icon">❌</span>
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

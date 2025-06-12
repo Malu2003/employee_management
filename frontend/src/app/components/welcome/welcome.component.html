@@ -1,0 +1,24 @@
+
+<div class="welcome-container" style="text-align: center; padding: 50px; max-width: 800px; margin: 0 auto;">
+  <h1 style="color:white; margin-bottom: 20px;">🎉 Welcome to Employee Management System</h1>
+  
+  <div style="background-color: #f8f9fa; padding: 30px; border-radius: 10px; margin: 20px 0;">
+    <h2>What would you like to do?</h2>
+    
+    <div style="margin-top: 30px;">
+      <button (click)="router.navigate(['/employees'])" 
+              style="background-color: #007bff; color: white; border: none; padding: 15px 30px; margin: 10px; border-radius: 5px; font-size: 16px; cursor: pointer;">
+        Manage Employees
+      </button>
+      
+      <button (click)="router.navigate(['/add-employee'])" 
+              style="background-color: #28a745; color: white; border: none; padding: 15px 30px; margin: 10px; border-radius: 5px; font-size: 16px; cursor: pointer;">
+        Add New Employee
+      </button>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px; color: #666;">
+    <p>Manage your employees, profiles, and posts all in one place!</p>
+  </div>
+</div>

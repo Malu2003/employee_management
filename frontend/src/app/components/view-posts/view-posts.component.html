@@ -1,0 +1,43 @@
+<div class="view-posts-container" style="max-width: 600px; margin: 20px auto; padding: 20px;">
+  <h2>Posts by {{ user?.username }}</h2>
+
+  
+  <div *ngIf="loading" style="text-align: center; padding: 20px;">
+    <p>Loading posts...</p>
+  </div>
+
+  
+  <div *ngIf="error" style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 15px; border: 1px solid #f5c6cb; border-radius: 4px;">
+    {{ error }}
+  </div>
+
+ 
+  <div *ngIf="user && !loading">
+    <div *ngIf="user.posts && user.posts.length > 0; else noPosts">
+      <div *ngFor="let post of user.posts; let i = index" 
+           style="border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 5px; background-color: #f9f9f9;">
+        <h3 style="color: #0e1011;">{{ i + 1 }}. {{ post.title }}</h3>
+        <p style="margin-top: 10px;" style="color: #0e1011;">{{ post.description }}</p>
+      </div>
+    </div>
+    
+    <ng-template #noPosts>
+      <div style="text-align: center; padding: 40px; color:black;">
+        <h3>No posts yet</h3>
+        <p>This user hasn't created any posts.</p>
+      </div>
+    </ng-template>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <button (click)="addNewPost()" 
+              style="background-color: #28a745; color: white; border: none; padding: 10px 20px; margin: 5px; border-radius: 4px;">
+        Add New Post
+      </button>
+      
+      <button (click)="goBack()" 
+              style="background-color: #6c757d; color: white; border: none; padding: 10px 20px; margin: 5px; border-radius: 4px;">
+        Back to List
+      </button>
+    </div>
+  </div>
+</div>

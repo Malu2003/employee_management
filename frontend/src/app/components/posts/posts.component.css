@@ -1,0 +1,51 @@
+h2{
+    color:white;
+    font-size: 20px;
+}
+.r1{
+    color:white;
+    font-size: 20px;
+}
+.r2{
+    color:white;
+    font-size: 20px;
+}
+.posts-container {
+  max-width: 600px;  /* Limit maximum width */
+  margin: 20px auto; /* Center the container */
+  padding: 20px;     /* Add padding inside */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Input and textarea styling */
+input[type="text"], textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
