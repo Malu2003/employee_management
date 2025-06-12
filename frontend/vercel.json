@@ -1,12 +1,11 @@
 {
   "version": 2,
-  "name": "employee-management-frontend",
   "builds": [
     {
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "distDir": "dist/employee_management"
       }
     }
   ],
